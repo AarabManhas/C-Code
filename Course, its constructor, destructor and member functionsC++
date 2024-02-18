@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+class course
+{
+	private: 
+	char CourseName[44];
+	  	int CourseCode;
+	  	int numberOfStudents;
+	  	public: course(); //Constructor
+		~course(); //Destructor
+		void read();
+		void disp();
+};
+course :: course()
+{
+	cout<<"Course Details has been created."<<endl;
+}
+void course :: read()
+{
+	cout<<"Enter the course name: ";
+	cin>>CourseName;
+	cout<<"Enter the  course code: ";
+	cin>>CourseCode;
+	cout<<"Enter Number of students:";
+	cin>> numberOfStudents;
+}
+void course :: disp()
+{
+	cout<<"Course Details has been created."<<endl;
+	cout<<"Course Name :"<<CourseName<<endl;
+	cout<<"Course Code is :"<<CourseCode<<endl;
+	cout<<"Number of student:"<< numberOfStudents<<endl;
+}
+course :: ~course()
+{
+	cout<<"Course class has been destroyed.";
+}
+int main()
+{
+	course c;
+	c.read();
+	c.disp();
+    return 0;
+}
