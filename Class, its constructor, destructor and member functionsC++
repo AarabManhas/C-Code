@@ -14,7 +14,7 @@ class student
 };
 student :: student()
 {
-        cout<<"Student Details has been created."<<endl;
+        cout<<"Student Details"<<endl;
 }
 void student :: read()
 {
