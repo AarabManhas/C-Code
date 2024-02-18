@@ -13,7 +13,7 @@ class course
 };
 course :: course()
 {
-	cout<<"Course Details has been created."<<endl;
+	cout<<"Course Details"<<endl;
 }
 void course :: read()
 {
