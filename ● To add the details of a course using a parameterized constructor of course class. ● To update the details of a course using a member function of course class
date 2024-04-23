@@ -1,0 +1,90 @@
+5A.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Course {
+private:
+    string CName;
+    string CCode;
+    int Ccredits;
+
+public:
+    // Parametrized constructor
+    Course(string name, string code, int credits) {
+        CName = name;
+        CCode = code;
+        Ccredits = credits;
+    }
+
+    // Function to display course details
+    void displayDetails() const {
+        cout << "Course Details:" << endl;
+        cout << "Course Name: " << CName << endl;
+        cout << "Course Code: " << CCode << endl;
+        cout << "Credits: " << Ccredits << endl;
+    }
+};
+
+int main() {
+    // Create a Course object using parametrized constructor
+    Course course("Object-Oriented Programming", "CS101", 3);
+
+    // Display course details
+    course.displayDetails();
+
+    return 0;
+}
+
+5B.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Course {
+private:
+    string CName;
+    string CCode;
+    int Ccredits;
+
+public:
+    // Parametrized constructor
+    Course(string name, string code, int credits) {
+        CName = name;
+        CCode = code;
+        Ccredits = credits;
+    }
+
+    // Function to update course details
+    void updateDetails(string name, string code, int credits) {
+       CName = name;
+        CCode = code;
+        Ccredits = credits;
+    }
+
+    // Function to display course details
+    void displayDetails() const {
+        cout << "Course Details:" << endl;
+        cout << "Course Name: " << CName << endl;
+        cout << "Course Code: " << CCode << endl;
+        cout << "Credits: " << Ccredits << endl;
+    }
+};
+
+int main() {
+    // Create a Course object using parametrized constructor
+    Course course("Object-Oriented Programming", "CS101", 3);
+
+    // Display initial course details
+    cout << "Initial Course Details:" << endl;
+    course.displayDetails();
+
+    // Update course details
+    course.updateDetails("Data Structures", "CS102", 4);
+
+    // Display updated course details
+    cout << "\nUpdated Course Details:" << endl;
+    course.displayDetails();
+
+    return 0;
+}
