@@ -1,0 +1,85 @@
+1A.
+#include<iostream>
+using namespace std;
+class student{
+    private:
+        string name;
+        int age;
+        float CGPA;
+    public:
+    student(string n , int a , float b) : name(n) , age(a) , CGPA(b){}
+        void setData(string n , int a , float b){
+            name = n;
+            age = a;
+            CGPA = b;
+    }
+    void showData(){
+        cout<<"Name : "<<name<<endl;
+        cout<<"Age : "<<age<<endl;
+        cout<<"CGPA : "<<CGPA<<endl;
+    }
+    string getName(){
+        return name;
+    }
+    int getAge(){
+        return age;
+    }
+    float getCGPA(){
+        return CGPA;
+    }
+};
+int main(){
+    student s1("Goku" , 22 , 9.0);
+    cout<<"Goku Details:"<<endl;  
+    s1.showData();
+    return 0;
+}
+
+1B.
+#include<iostream>
+using namespace std;
+class student
+{
+                private:
+                    char name[22];
+                    int roll;
+                    float CGPA;
+                public:
+                    student();//Constructor
+                    ~student();//Destructor
+                    void read();
+                    void disp();
+};
+student :: student()
+{
+        cout<<"Student Details"<<endl;
+}
+void student :: read()
+{
+        cout<<"Enter the Student Name : ";
+        cin>>name;
+        cout<<"Enter the Student Roll no. : ";
+        cin>>roll ;
+        cout<<"Enter Student CGPA:";
+        cin>>CGPA;
+       }
+void student :: disp()
+{
+    cout<<" Student Details has been created :"<<endl;
+        cout<<"Student Name : "<<name<<endl;
+        cout<<"Roll no. : "<<roll <<endl;
+        cout<<"CGPA  :"<<CGPA<<endl;
+}
+student :: ~student()
+{
+        cout<<"Student Detail has been destroyed.";
+}
+int main()
+{
+    student s;
+    s.read();
+    s.disp();
+    return 0;
+}
+
+1.C
