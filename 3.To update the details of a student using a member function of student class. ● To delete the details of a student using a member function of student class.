@@ -1,0 +1,86 @@
+3A.
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+private:
+    string Sname;
+    int Regn;
+    char SGrade;
+public:
+    // Constructor
+    Student(string name, int regNo, char grade) {
+        Sname = name;
+        Regn = regNo;
+        SGrade = grade;
+    }
+    // Function to update student details
+    void updateDetails(string newName, int newRegNo, char newGrade) {
+       Sname = newName;
+         Regn = newRegNo;
+        SGrade = newGrade;
+    }
+    // Function to display student details
+    void displayDetails() {
+       cout << "Student Details:" << endl;
+        cout << "Name: " << Sname << endl;
+        cout << "Registration Number: " << Regn <<endl;
+        cout << "Grade: " <<SGrade << endl;
+    }};int main() {
+    // Create an object of Student class
+    Student obj("Jerry", 12345, 'A');
+    // Display initial student details
+    cout << "Initial Student Details:" << endl;
+    obj.displayDetails();
+    // Update student details
+    obj.updateDetails("Jim", 60070, 'B');
+    // Display updated student details
+    cout << "\nUpdated Student Details:" << endl;
+    obj.displayDetails();
+    return 0;
+}
+
+3B.
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+private:
+    string Sname;
+    int Regn;
+    char SGrade;
+public:
+    // Constructor
+    Student(string name, int regNo, char grade) {
+        Sname = name;
+        Regn = regNo;
+        SGrade = grade;
+    }
+    // Function to delete student details
+    void deleteDetails() {
+       Sname = "";
+         Regn = 0;
+        SGrade = '\0';
+    }
+    // Function to display student details
+    void displayDetails() {
+       cout << "Student Details:" << endl;
+        cout << "Name: " << Sname << endl;
+        cout << "Registration Number: " << Regn <<endl;
+        cout << "Grade: " <<SGrade << endl;
+    }
+};
+int main() {
+    // Create an object of Student class
+    Student obj("Jerry", 12345, 'A');
+    // Display initial student details
+    cout << "Initial Student Details:" << endl;
+    obj.displayDetails();
+    //  student details after deletion
+    obj.deleteDetails();
+    // Display updated student details
+    cout << "\nStudent Details after deletion:" << endl;
+    obj.displayDetails();
+    return 0;
+}
+
