@@ -1,0 +1,101 @@
+6A.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Course {
+private:
+    string CName;
+    string CCode;
+    int Ccredits;
+
+public:
+    // Parametrized constructor
+    Course(string name, string code, int credits) {
+        CName = name;
+        CCode = code;
+        Ccredits = credits;
+    }
+
+    // Function to delete (reset) course details
+    void deleteDetails() {
+        CName = "";
+        CCode = "";
+        Ccredits = 0;
+    }
+
+    // Function to display course details
+    void displayDetails() const {
+        cout << "Course Details:" << endl;
+        cout << "Course Name: " << CName << endl;
+        cout << "Course Code: " << CCode << endl;
+        cout << "Credits: " << Ccredits << endl;
+    }
+};
+
+int main() {
+    // Create a Course object using parametrized constructor
+    Course course("Object-Oriented Programming", "CS101", 3);
+
+    // Display initial course details
+    cout << "Initial Course Details:" << endl;
+    course.displayDetails();
+
+    // Delete (reset) course details
+    course.deleteDetails();
+
+    // Display deleted course details
+    cout << "\nDeleted Course Details:" << endl;
+    course.displayDetails();
+
+    return 0;
+}
+6B.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Course {
+private:
+    string CName;
+    string CCode;
+    int Ccredits;
+    int Ccourse_id;
+
+public:
+    // Parametrized constructor
+    Course(string name, string code, int credits, int id) {
+        CName = name;
+        CCode = code;
+        Ccredits = credits;
+        Ccourse_id = id;
+    }
+
+    // Function to get course details by course_id
+    void getDetailsById(int id) const {
+        if (Ccourse_id == id) {
+            cout << "Course Details:" << endl;
+            cout << "Course Name: " << CName << endl;
+            cout << "Course Code: " << CCode << endl;
+            cout << "Credits: " << Ccredits << endl;
+            cout << "Course ID: " << Ccourse_id << endl;
+        } else {
+            cout << "Course with course_id " << id << " not found!" << endl;
+        }
+    }
+};
+
+int main() {
+    // Create a Course object using parametrized constructor
+    Course obj("Object-Oriented Programming", "CS101", 3, 101);
+
+    // Input course_id to get details
+    int courseId;
+    cout << "Enter the Course ID to get details: ";
+    cin >> courseId;
+
+    // Get details of course by course_id
+    obj.getDetailsById(courseId);
+
+    return 0;
+}
