@@ -1,0 +1,120 @@
+4A. 
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+private:
+    string Sname;
+    int Regn;
+    char SGrade;
+public:
+    // Constructor
+    Student(string name, int regNo, char grade) {
+        Sname = name;
+        Regn = regNo;
+        SGrade = grade;
+    }
+    // Function to search student details by roll number
+    bool searchByRollNo(int rollNo) {
+        if (Regn == rollNo) {
+            return true;
+        }
+        return false;
+    }
+    // Function to display student details
+    void displayDetails() {
+        cout << "Student Details:" << endl;
+        cout << "Name: " << Sname << endl;
+        cout << "Registration Number: " << Regn << endl;
+        cout << "Grade: " << SGrade << endl;
+    }};
+int main() {
+    // Create an object of Student class
+    Student students[] = {
+        Student("GOKU", 12345, 'A'),
+        Student("GOJO", 67890, 'B'),
+        Student("SAKUNA", 152244, 'C')
+    };
+
+    int rollNo;
+    bool found = false;
+
+    // Input roll number to search
+    cout << "Enter the Registration Number to search: ";
+    cin >> rollNo;
+
+    // Search for student details by roll number
+    for (int i = 0; i < 3; i++) {
+        if (students[i].searchByRollNo(rollNo)) {
+            cout << "\nStudent Found!" << endl;
+            students[i].displayDetails();
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "\nStudent with Registration Number " << rollNo << " not found!" << endl;
+    }
+
+    return 0;
+}
+
+4B.
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+private:
+    string Sname;
+    int Regn;
+    char SGrade;
+    string result;
+public:
+    // Constructor
+    Student(string name, int regNo, char grade, string result) {
+        Sname = name;
+        Regn = regNo;
+        SGrade = grade;
+        this->result = result;
+    }
+    // Function to get result of student by roll number
+    string getResultByRollNo(int rollNo) {
+        if (Regn == rollNo) {
+            return result;
+        }
+        return "Roll number not found";
+    }
+    // Function to display student details
+    void displayDetails() {
+        cout << "Student Details:" << endl;
+        cout << "Name: " << Sname << endl;
+        cout << "Registration Number: " << Regn << endl;
+        cout << "Grade: " << SGrade << endl;
+        cout << "Result: " << result << endl;
+    }
+};
+int main() {
+    // Create an object of Student class
+    Student students[] = {
+        Student("TONY", 12345, 'A', "Pass"),
+        Student("STEVE", 67890, 'B', "Fail"),
+        Student("THOR", 22044, 'C', "Pass")
+    };
+    int rollNo;
+    string result;
+    // Input roll number to get result
+    cout << "Enter the Registration Number to get result: ";
+    cin >> rollNo;
+    // Get result of student by roll number
+    result = "Roll number not found";
+    for (int i = 0; i < 3; i++) {
+        result = students[i].getResultByRollNo(rollNo);
+        if (result != "Roll number not found") {
+            break;
+        }
+    }
+    // Display result
+    cout << "\nResult: " << result << endl;
+    return 0;
+}
