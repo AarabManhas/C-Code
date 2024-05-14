@@ -136,3 +136,38 @@ int main() {
     return 0;
 }
 12.C
+#include<iostream>
+using namespace std;
+class student{
+    private:
+        string name;
+        int age;
+        float CGPA;
+    public:
+    student(string n , int a , float b) : name(n) , age(a) , CGPA(b){}
+        void setData(string n , int a , float b){
+            name = n;
+            age = a;
+            CGPA = b;
+    }
+    void showData(){
+        cout<<"Name : "<<name<<endl;
+        cout<<"Age : "<<age<<endl;
+        cout<<"CGPA : "<<CGPA<<endl;
+    }
+    string getName(){
+        return name;
+    }
+    int getAge(){
+        return age;
+    }
+    float getCGPA(){
+        return CGPA;
+    }
+};
+int main(){
+    student s1("EINSTEIN" , 22 , 9.0);
+    cout<<"EIENSTEIN Details:"<<endl;  
+    s1.showData();
+    return 0;
+}
