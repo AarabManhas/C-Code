@@ -1,0 +1,138 @@
+12.A
+//program to create function templates to search  a student by name or roll number?
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+// Define a Student structure
+struct Student {
+    string name;
+    int rollNumber;
+};
+// Function template to search for a student by name
+template<typename T>
+int searchByName(const vector<T>& students, const string& name) {
+    for (size_t i = 0; i < students.size(); ++i) {
+        if (students[i].name == name) {
+            return i; // Return the index of the student
+        }
+    }
+    return -1; // Return -1 if student not found
+}
+
+// Function template to search for a student by roll number
+template<typename T>
+int searchByRollNumber(const vector<T>& students, int rollNumber) {
+    for (size_t i = 0; i < students.size(); ++i) {
+        if (students[i].rollNumber == rollNumber) {
+            return i; // Return the index of the student
+        }
+    }
+    return -1; // Return -1 if student not found
+}
+
+int main() {
+    // Create a vector of students
+    vector<Student> students = {
+        {"Alice", 101},
+        {"Bob", 102},
+        {"Charlie", 103},
+        {"David", 104}
+    };
+    // Search for a student by name
+   string nameToSearch = "Bob";
+    int indexByName = searchByName(students, nameToSearch);
+    if (indexByName != -1) {
+        std::cout << "Student with name " << nameToSearch << " found at index " << indexByName << endl;
+    } else {
+      cout << "Student with name " << nameToSearch << " not found" << endl;
+    }
+    // Search for a student by roll number
+    int rollNumberToSearch = 103;
+    int indexByRollNumber = searchByRollNumber(students, rollNumberToSearch);
+    if (indexByRollNumber != -1) {
+       cout << "Student with roll number " << rollNumberToSearch << " found at index " << indexByRollNumber <<endl;
+    } else {
+      cout << "Student with roll number " << rollNumberToSearch << " not found" <<endl;
+    }
+    return 0;
+}
+
+12.B
+//To update all the input methods in student and course classes with validation using try - catch?
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+private:
+    string name;
+    int age;
+    int rollNo;
+public:
+      void setInput() {
+        try {
+            cout << "Enter student name: ";
+            getline(cin, name);
+            if (name.empty()) {
+                throw string("Name cannot be empty");
+            }
+
+            cout << "Enter student age: ";
+            cin >> age;
+            if (age <= 0) {
+                throw string("Age must be a positive integer");
+            }
+            cout << "Enter student roll number: ";
+            cin >> rollNo;
+            if (rollNo <= 0) {
+                throw string("Roll number must be a positive integer");
+            }
+        } catch (const string& e) {
+            cerr << "Error: " << e << endl;
+            setInput(); // retry input
+        }
+    }
+
+    void display() {
+        cout << "Student Name: " << name << std::endl;
+        cout << "Student Age: " << age << std::endl;
+        cout << "Student Roll Number: " << rollNo << std::endl;
+    }
+};
+class Course {
+private:
+    string courseName;
+    int courseCode;
+public:
+       void setInput() {
+        try {
+            cout << "Enter course name: ";
+            getline(cin, courseName);
+            if (courseName.empty()) {
+                throw string("Course name cannot be empty");
+            }
+            cout << "Enter course code: ";
+            cin >> courseCode;
+            if (courseCode <= 0) {
+                throw string("Course code must be a positive integer");
+            }
+        } catch (const string& e) {
+            cerr << "Error: " << e << endl;
+            setInput(); // retry input
+        }
+    }
+    void display() {
+        cout << "Course Name: " << courseName << endl;
+        cout << "Course Code: " << courseCode << endl;
+    }
+};
+int main() {
+    Student student;
+    student.setInput();
+    student.display();
+    Course course;
+    course.setInput();
+    course.display();
+    return 0;
+}
+12.C
